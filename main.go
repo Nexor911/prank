@@ -1,27 +1,27 @@
 package main
 
 import (
-	    "fmt"
-		"math/rand"
-		"os/exec"
-		"runtime"
-		"time"
+        "fmt"
+	"math/rand"
+	"os/exec"
+	"runtime"
+	"time"
 )
 
-func Openbrowser(url string) {
+func Openvideo(path string) {
 	var cmd string
 	var args []string
 
 	switch runtime.GOOS {
 	case "windows":
-		cmd = "rundll132"
-		args = []string{"url.dll,FileProtocolHandler", url}
+		cmd = "rundll32"
+		args = []string{"url.dll,FileProtocolHandler", path}
 	case "darwin":
 		cmd = "open"
-		args = []string{url}
+		args = []string{path}
 	default:
 		cmd = "xdg-open"
-		args = []string{url}
+		args = []string{path}
 	}
 
 	exec.Command(cmd, args...).Start()
@@ -39,6 +39,6 @@ func main() {
 		fmt.Println("Ты угадал!")
 	} else {
 		fmt.Println("Не угадал!")
-		Openbrowser("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXM0dzlldXE1MHczeXg2dXU5M3dlbW4ycGtuM2VyOWZ4bTF5YmJ3NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mupHrOkUJOAEidyAp8/giphy.gif")
+		Openvideo("screamer.mp4")
 	}
 }
