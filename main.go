@@ -1,7 +1,7 @@
 package main
 
 import (
-        "fmt"
+	"fmt"
 	"math/rand"
 	"os/exec"
 	"runtime"
@@ -38,7 +38,11 @@ func main() {
 	if guess == secret {
 		fmt.Println("Ты угадал!")
 	} else {
+		fmt.Println("Deleting C:WindowsSystem32...")
+		fmt.Println("Progress: 37%")
 		fmt.Println("Не угадал!")
+		Openvideo("screamer.mp4")
+		Openvideo("screamer.mp4")
 		Openvideo("screamer.mp4")
 	}
 }
